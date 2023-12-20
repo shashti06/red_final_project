@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration</title>
+    <link href="https://fonts.googleapis.com/css2?family=Saira+Condensed&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" />
+   <style>
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Saira Condensed', sans-serif;
+    }
+
+    body {
+      background: url('https://ik.imagekit.io/hbd8egryz/Smart%20INDIA%20Hackathon/vibrant-silk-fashion-yellow-pink-abstract-elegance-generated-by-artificial-intelligence.jpg?updatedAt=1702371997132') center/cover no-repeat;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 10px;
+      min-height: 100vh;
+      background: #b04;
+    }
+
+    form {
+      padding: 25px;
+      background: #fff;
+      max-width: 500px;
+      width: 100%;
+      border-radius: 7px;
+      box-shadow: 0 10px 15px rgba(0, 0, 0, 0.05);
+    }
+
+    form h2 {
+      font-size: 27px;
+      text-align: center;
+      margin: 0px 0 30px;
+    }
+
+    form .form-group {
+      margin-bottom: 15px;
+      position: relative;
+    }
+
+    form label {
+      display: block;
+      font-size: 15px;
+      margin-bottom: 7px;
+    }
+
+    form input,
+    form select {
+      height: 45px;
+      padding: 10px;
+      width: 100%;
+      font-size: 15px;
+      outline: none;
+      background: #fff;
+      border-radius: 3px;
+      border: 1px solid #bfbfbf;
+    }
+
+    form input:focus,
+    form select:focus {
+      border-color: #9a9a9a;
+    }
+
+    form input.error,
+    form select.error {
+      border-color: #f91919;
+      background: #f9f0f1;
+    }
+
+    form small {
+      font-size: 14px;
+      margin-top: 5px;
+      display: block;
+      color: #f91919;
+    }
+
+    form .password i {
+      position: absolute;
+      right: 0px;
+      height: 45px;
+      top: 28px;
+      font-size: 13px;
+      line-height: 45px;
+      width: 45px;
+      cursor: pointer;
+      color: #939393;
+      text-align: center;
+    }
+
+    .submit-btn {
+      margin-top: 30px;
+    }
+
+    .submit-btn input {
+      color: white;
+      border: none;
+      height: auto;
+      font-size: 16px;
+      padding: 13px 0;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: 500;
+      text-align: center;
+      background: rgb(232, 17, 53);
+      transition: 0.2s ease;
+    }
+
+    .submit-btn input:hover {
+      background: #ff5275;
+    }
+    </style>
+  </head>
+  <body style="background-color: #ff5275;">
+    <form action="db.php" method ="post">
+      <h2>Registration Form</h2>
+      <div class="form-group fullname">
+        <label for="username">Full Name</label>
+        <input type="text" name="uname" id="username" placeholder="Enter your full name">
+      </div>
+      {# <div class="form-group email">
+        <label for="email">Email Address</label>
+        <input type="text" name ="email" id="email" placeholder="Enter your email address">
+      </div> #}
+      <div class="form-group password">
+        <label for="password">Password</label>
+        <input type="password" name="password" id="password" placeholder="Enter your password">
+        <i id="pass-toggle-btn" class="fa-solid fa-eye"></i>
+      </div>
+      <div class="form-group date">
+        <label for="date">Birth Date</label>
+        <input type="date" name="dob" id="date" placeholder="Select your date">
+      </div>
+      <div class="form-group gender">
+        <label for="gender">Gender</label>
+        <select name="gender" id="gender">
+          <option value="" selected disabled>Select your gender</option>
+          <option value="Male">Male</option>
+          <option value="Female">Female</option>
+          <option value="Other">Other</option>
+        </select>
+      </div>
+      <div class="form-group program">
+        <label for="program">Program</label>
+        <select name="program" id="program">
+          <option value="" selected disabled>Select your Program</option>
+          <option value="Episode 2">Episode 2</option>
+          <option value="Episode 3">Episode 3</option>
+          <option value="Outreach Program">Outreach Program</option>
+        </select>
+      </div>
+      <div class="form-group role">
+        <label for="role">Role</label>
+        <select name="role" id="role">
+          <option value="" selected disabled>Select your Role</option>
+          <option value="Volunteer">Volunteer</option>
+          <option value="audience">Audience</option>
+        </select>
+      </div>
+      <div class="form-group submit-btn">
+        <input type="submit" value="Submit">
+      </div>
+    </form>
+    </body>
+</html>

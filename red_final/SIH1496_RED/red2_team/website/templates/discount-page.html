@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Discount Information</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            text-align: center;
+            padding: 20px;
+        }
+
+        h2 {
+            color: #333;
+            font-size: 2em;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+
+        p {
+            color: #555;
+            font-size: 1.2em;
+        }
+
+        /* Adding a bit of style to the discount type */
+        #discountType {
+            color: #e44d26;
+            font-weight: bold;
+            font-size: 1.5em;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>Special Offer!</h2>
+    <p>Your shopping cart qualifies for an exclusive discount:</p>
+    <p id="discountType"></p>
+
+    <script>
+        // Retrieve discount type from the URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const discountType = urlParams.get('type');
+
+        // Display discount type on the page
+        document.getElementById('discountType').textContent = `Congratulations! You get a ${discountType} discount.`;
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../static/login.css">
+  <title>Document</title>
+</head>
+<body>
+  <div class="form signup">
+<form method="POST">
+      <h2>Signup</h2>
+        <div class="input-field">
+        <input type="email" required
+        id = "email"
+        name = "email"
+        placeholder="Enter your email">
+      </div>
+      <div class="input-field">
+        <input type="text" required
+        id = "username"
+        name = "username"
+        placeholder="Enter your username">
+      </div>
+      <div class="input-field">
+        <input type="password" required
+        id = "password1"
+        name = "password1"
+        placeholder="Enter your password">
+      </div>
+      <div class="input-field">
+        <input type="password" required
+        id = "password2"
+        name = "password2"
+        placeholder="Enter your password again">
+        
+      </div>
+      <div class="forget">
+        <label for="remember">
+          <input type="checkbox" id="remember">
+          <p>Remember me</p>
+        </label>
+    <br>     
+        <div class="forget">
+      <label for="receiveUpdates">
+        <input type="checkbox" id="receiveUpdates" name="receiveUpdates">
+        <div><a href="mailto:example@gmail.com"></a></div>
+        <span style="display: inline-block;">Receive updates via email</span>
+      </label>
+    </div>
+        {# <a href="#">Forgot password?</a> #}
+      </div>
+      <button type="submit">Sign In</button>
+      <div class="register">
+        <p>Don't have an account? <a href="/login">Login</a></p>
+      </div>
+  </form>
+  </div>
+</body>
+
+

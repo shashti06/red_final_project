@@ -1,0 +1,909 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@100;400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+    <style>
+        body {
+            font-family: 'Saira Condensed', sans-serif;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+        
+        nav {
+        font-family: 'Saira Condensed', sans-serif;
+        font-weight: 500;
+        font-size: medium;
+        background-color: #ff5274;
+        color: white;
+        position: fixed;
+        width: 100%;
+        z-index: 1000;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        animation: fadeInDown 0.8s;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Add text shadow */
+        }
+
+        nav a {
+            color: white;
+            margin: 0 10px;
+            padding: 10px;
+            text-decoration: none;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        nav a::before {
+            content: ''; /* Add a decorative element */
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background-color: #fff; /* White line design */
+            transform: scaleX(0); /* Initially hidden */
+            transform-origin: bottom right;
+            transition: transform 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #000000; /* Change color on hover */
+        }
+
+        nav a:hover::before {
+            transform: scaleX(1); /* Reveal the line on hover */
+        }
+
+        nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 10px;
+        }
+
+         @keyframes fadeInDown {
+        0% {
+             transform: translateY(-100%);
+           }
+            100% {
+                    transform: translateY(0);
+            }
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .hamburger div {
+            width: 30px;
+            height: 3px;
+            background-color: white;
+            margin: 6px 0;
+            transition: 0.4s;
+        }
+
+        .nav-menu {
+            display: flex;
+            flex-grow: 1;
+            justify-content: flex-end;
+            align-items: center;
+        }
+
+        .nav-menu a {
+            display: block;
+            padding: 10px;
+            font-size: 113%;
+        }
+
+        .nav-menu a:hover{
+            color: #000000;
+        }
+
+        .landing-section {
+        background: url('https://ik.imagekit.io/hbd8egryz/Smart%20INDIA%20Hackathon/vibrant-silk-fashion-yellow-pink-abstract-elegance-generated-by-artificial-intelligence.jpg?updatedAt=1702371997132') center/cover no-repeat;
+        background-size:cover;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        color: rgba(255, 255, 255, 0); 
+        }
+
+        .card {
+        position: relative;
+        width: 100%;
+        height: 30vh;
+        display: flex;
+        left: 30%;
+        bottom: 25%;
+        border-radius: 20px;
+       }
+
+
+        .landing-section-title {
+        color: #DC143C;
+        font-family: 'Saira Condensed', sans-serif;
+        font-weight: bold;
+        font-size: 12rem;
+        animation: fadeIn ease-in-out 1;
+        animation-fill-mode: forwards;
+        animation-duration: 1s;
+        position: absolute;
+        right: 70%;
+        top: 0%;
+        z-index: 1; /* Ensure the text appears above the background */
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Add a subtle text shadow */
+        }
+
+
+        .landing-section-subtitle {
+        color: #000000;
+        font-family: 'Saira Condensed', sans-serif; /* Change the font if needed */
+        font-size: 2rem;
+        margin-bottom: 2rem;
+        opacity: 0;
+        animation: fadeIn ease-in-out 1;
+        animation-fill-mode: forwards;
+        animation-duration: 1s;
+        animation-delay: 0.5s;
+        margin-top: 0%;
+        margin-left: 0%;
+        width: 50%;
+        position: absolute;
+        top: 53%;
+        left: 15%;
+        z-index: 1; /* Ensure the text appears above the background */
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3); /* Add a subtle text shadow */
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        @keyframes moveRight {
+            0% {
+                transform: translateX(-50%);
+            }
+            100% {
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes moveLeft {
+            0% {
+                transform: translateX(50%);
+            }
+            100% {
+                transform: translateX(0);
+            }
+        }
+
+
+        img, video {
+        max-width: 100%;
+        height: 55%;
+        display: flex;
+        position: absolute;
+        top: 4%;
+        left: 2%;
+        animation: fadeIn ease-in-out 1;
+        animation-fill-mode:backwards;
+        animation-duration: 1s;
+        animation-delay: 1s;
+        mix-blend-mode: multiply;
+        }
+
+        .scroll-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            justify-content: space-between;
+            text-align: center;
+            position: relative;
+            background-color: lightgrey
+        }
+
+        .horizontal-scroll {
+            overflow-x: auto;
+            white-space: nowrap;
+            display: flex;
+            align-items: center;
+            width: 100%;
+            scroll-snap-type: x proximity;
+            padding: 20px 0;
+            
+        }
+
+        .horizontal-scroll div {
+            min-width: 100%;
+            height: 500px;
+            box-sizing: border-box;
+            padding: 20px;
+            text-align: center;
+            border: 1px solid #110505;
+            border-radius: 8px;
+            margin: 0 10px;
+            transition: transform 0.3s ease;
+            scroll-snap-align: center;
+            transform-origin: center center;
+            white-space: normal; /* Use overflow-wrap instead of word-wrap */
+        }
+
+        .horizontal-scroll div p {
+            text-align: center;
+            font-size: 100%; /* Add this line to align the text in the center */
+        }
+
+
+        .horizontal-scroll div:first-child {
+            margin-left: 20px;
+        }
+
+        .horizontal-scroll div:last-child {
+            margin-right: 20px;
+        }
+
+        .horizontal-scroll div:nth-child(1) {
+            background: url('https://ik.imagekit.io/hbd8egryz/Smart%20INDIA%20Hackathon/Images%202/minimal-scene-with-gift-pastel-colors%20(2).jpg?updatedAt=1702566306446') center/cover no-repeat;
+            background-size: cover;
+            border-radius: 20px;
+            box-shadow: 0px 0px 6px 0px black;
+            text-align: left;
+            padding: 20px; /* Add some padding for better readability */
+            position: relative;
+        }
+
+        .horizontal-scroll div:nth-child(1) p {
+            text-align: start;
+            font-size: 1.8rem; /* Increase font size */
+            color: #fff; /* Adjust the shade as needed */
+            font-weight: bold; /* Add bold style */
+            margin-bottom: 20px;
+            text-shadow: 4px 4px 8px rgba(0.5, 0, 0, 0.5); /* Add margin to separate from the button */
+        }
+
+        .horizontal-scroll div:nth-child(1) a {
+            position: relative;
+            display: inline-block; /* Change to inline-block for better centering */
+            padding: 10px 20px; /* Add padding to the button */
+            background-color: #DC143C;
+            color: #fff; /* Set text color to white */
+            border-radius: 8px;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+
+        .horizontal-scroll div:nth-child(1) a:hover {
+            background-color: #880808;
+        }
+
+        .horizontal-scroll div:nth-child(1)::before {
+            content: ''; /* Create a pseudo-element for the overlay */
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 20px;
+        }
+
+        .horizontal-scroll div:nth-child(2) {
+            background: url('https://ik.imagekit.io/hbd8egryz/Smart%20INDIA%20Hackathon/Images%202/portrait-good-looking-feminine-girl-has-afro-hairstyle-holds-monthly-calendar-clean-sanitary-napkin%20(1).jpg?updatedAt=1702566306867') center/cover no-repeat;
+            background-size: cover;
+            border-radius: 20px;
+            background-position: top;
+            text-align: left;
+            position: relative;
+            box-shadow: 0px 0px 6px 0px black;
+        }
+
+        .horizontal-scroll div:nth-child(2) p{
+            text-align: start;
+            font-size: 1.5rem;
+            color: #fff;
+            font-weight: bold;
+            margin-bottom: 20px;
+            text-shadow: 4px 4px 8px rgba(0.5, 0, 0, 0.5);
+        }
+
+        .horizontal-scroll div:nth-child(2) a{
+            position: relative;
+            display: inline-block;
+            padding: 10px 20px;
+            border-radius: 8px;
+            color: #fff;
+            background-color: #DC143C;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+
+        .horizontal-scroll div:nth-child(2) a:hover {
+            background-color: #880808;
+        }
+
+        .horizontal-scroll div:nth-child(2)::before {
+            content: ''; /* Create a pseudo-element for the overlay */
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 20px;
+        }
+
+        .horizontal-scroll div:nth-child(3) {
+            background: url('https://ik.imagekit.io/hbd8egryz/Smart%20INDIA%20Hackathon/Images%202/front-view-young-female-doctor-white-suit-with-blue-stethoscope-posing-smiling-pink-space-medicine-medical-hospital.jpg?updatedAt=1702471416342') center/cover no-repeat;
+            background-size: cover;
+            background-position: top;
+            border-radius: 20px;
+            box-shadow: 0px 0px 6px 0px black;
+            text-align: left;
+            padding: 20px; /* Add some padding for better readability */
+            position: relative;
+        }
+
+        .horizontal-scroll div:nth-child(3) p{
+            text-align: start;
+            font-size: 1.8rem; /* Increase font size */
+            color: #fff; /* Set font color to white for better contrast */
+            font-weight: bold; /* Add bold style */
+            margin-bottom: 20px;
+            text-shadow: 4px 4px 8px rgba(0.5, 0, 0, 0.5); /* Add margin to separate from the button */
+        }
+
+        .horizontal-scroll div:nth-child(3) a{
+            position: relative;
+            display: inline-block; /* Change to inline-block for better centering */
+            padding: 10px 20px; /* Add padding to the button */
+            background-color: #DC143C;
+            color: #fff; /* Set text color to white */
+            border-radius: 8px;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+
+        .horizontal-scroll div:nth-child(3) a:hover {
+            background-color: #880808;
+        }
+
+        .horizontal-scroll div:nth-child(3)::before {
+            content: ''; /* Create a pseudo-element for the overlay */
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 20px;
+        }
+
+        .horizontal-scroll div:nth-child(4) {
+            background: url('https://ik.imagekit.io/hbd8egryz/Smart%20INDIA%20Hackathon/Images%202/nervous-female-entrepreneur-giving-speech-with-microphone-holding-mic-looking-aside-anxiously-po.jpg?updatedAt=1702471415958') center/cover no-repeat;
+            background-size: cover;
+            border-radius: 20px;
+            box-shadow: 0px 0px 6px 0px black;
+            text-align: left;
+            padding: 20px; /* Add some padding for better readability */
+            position: relative;
+        }
+
+        .horizontal-scroll div:nth-child(4) p{
+            text-align: start;
+            font-size: 1.8rem; /* Increase font size */
+            color: #fff; /* Set font color to white for better contrast */
+            font-weight: bold; /* Add bold style */
+            margin-bottom: 20px;
+            text-shadow: 4px 4px 8px rgba(0.5, 0, 0, 0.5); /* Add margin to separate from the button */
+        }
+
+        .horizontal-scroll div:nth-child(4) a{
+            position: relative;
+            display: inline-block; /* Change to inline-block for better centering */
+            padding: 10px 20px; /* Add padding to the button */
+            background-color: #DC143C;
+            color: #fff; /* Set text color to white */
+            border-radius: 8px;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+
+        .horizontal-scroll div:nth-child(4) a:hover {
+            background-color: #880808;
+        }
+
+        .horizontal-scroll div:nth-child(4)::before {
+            content: ''; /* Create a pseudo-element for the overlay */
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 20px;
+        }
+
+
+        .horizontal-scroll div:nth-child(5) {
+            background: url('https://ik.imagekit.io/hbd8egryz/Smart%20INDIA%20Hackathon/Images%202/view-3d-cinema-elements.jpg?updatedAt=1702471456683') center/cover no-repeat;
+            background-size: cover;
+            background-position: top;
+            border-radius: 20px;
+            box-shadow: 0px 0px 6px 0px black;
+            text-align: left;
+            padding: 20px; /* Add some padding for better readability */
+            position: relative;
+        }
+
+        .horizontal-scroll div:nth-child(5) p{
+            text-align: start;
+            font-size: 1.8rem; /* Increase font size */
+            color: #fff; /* Set font color to white for better contrast */
+            font-weight: bold; /* Add bold style */
+            margin-bottom: 20px; /* Add margin to separate from the button */
+        }
+
+        .horizontal-scroll div:nth-child(5) a{
+            position: relative;
+            display: inline-block; /* Change to inline-block for better centering */
+            padding: 10px 20px; /* Add padding to the button */
+            background-color: #DC143C;
+            color: #fff; /* Set text color to white */
+            border-radius: 8px;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+
+        .horizontal-scroll div:nth-child(5) a:hover {
+            background-color: #880808;
+        }
+
+        .horizontal-scroll div:nth-child(5)::before {
+            content: ''; /* Create a pseudo-element for the overlay */
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 20px;
+        }
+
+        .horizontal-scroll div:nth-child(6) {
+            background: url('https://ik.imagekit.io/hbd8egryz/Smart%20INDIA%20Hackathon/Images%202/smartphone-pin-pointer-mark-location-online-delivery-transportation-logistics-concept-pink-background-3d-rendering-illustration%20(2).jpg?updatedAt=1702566025404') center/cover no-repeat;
+            background-size: cover;
+            border-radius: 20px;
+            box-shadow: 0px 0px 6px 0px black;
+            text-align: left;
+            padding: 20px; /* Add some padding for better readability */
+            position: relative;
+        }
+        
+
+        .horizontal-scroll div:nth-child(6) p{
+            text-align: start;
+            font-size: 1.8rem; /* Increase font size */
+            color: #fff; /* Set font color to white for better contrast */
+            font-weight: bold; /* Add bold style */
+            margin-bottom: 20px; /* Add margin to separate from the button */
+        }
+
+        .horizontal-scroll div:nth-child(6) a{
+            position: relative;
+            display: inline-block; /* Change to inline-block for better centering */
+            padding: 10px 20px; /* Add padding to the button */
+            background-color: #DC143C;
+            color: #fff; /* Set text color to white */
+            border-radius: 8px;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+
+        .horizontal-scroll div:nth-child(6) a:hover {
+            background-color: #880808;
+        }
+
+        .horizontal-scroll div:nth-child(6)::before {
+            content: ''; /* Create a pseudo-element for the overlay */
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 20px;
+        }
+
+        .horizontal-scroll div:nth-child(7) {
+            background: url('https://ik.imagekit.io/hbd8egryz/Smart%20INDIA%20Hackathon/Images%202/top-view-geometrical-shapes-with-copy-space%20(1).jpg?updatedAt=1702566018379') center/cover no-repeat;
+            background-size: cover;
+            border-radius: 20px;
+            box-shadow: 0px 0px 6px 0px black;
+            text-align: left;
+            padding: 20px; /* Add some padding for better readability */
+            position: relative;
+        }
+
+        .horizontal-scroll div:nth-child(7) p{
+            text-align: start;
+            font-size: 1.8rem; /* Increase font size */
+            color: #fff; /* Set font color to white for better contrast */
+            font-weight: bold; /* Add bold style */
+            margin-bottom: 20px; /* Add margin to separate from the button */
+        }
+
+        .horizontal-scroll div:nth-child(7) a{
+            position: relative;
+            display: inline-block; /* Change to inline-block for better centering */
+            padding: 10px 20px; /* Add padding to the button */
+            background-color: #DC143C;
+            color: #fff; /* Set text color to white */
+            border-radius: 8px;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+
+        .horizontal-scroll div:nth-child(7) a:hover {
+            background-color: #880808;
+        }
+
+        .horizontal-scroll div:nth-child(7)::before {
+            content: ''; /* Create a pseudo-element for the overlay */
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 20px;
+        }
+
+        .arrow-btn {
+            cursor: pointer;
+            margin-top: 20px;
+            font-size: 24px;
+            margin-left: 5%;
+        }
+        .arrow-btn2{
+            cursor: pointer;
+            margin-top: -2.3%;
+            margin-right: 5%;
+            font-size:24px;
+            }
+
+        .big-button {
+        background-color: #DC143C;
+        color: white;
+        padding: 14px 26px; /* Increased padding for a more prominent look */
+        font-size: 1.4rem; /* Slightly increased font size */
+        border: none;
+        border-radius: 12px; /* Rounded corners */
+        cursor: pointer;
+        transition: background-color 0.3s ease, transform 0.3s ease;
+        margin-top: 3%;
+        margin-bottom: 1%;
+        box-shadow: 0px 8px 20px 0px rgba(0, 0, 0, 0.2); /* Enhanced box shadow */
+        }
+
+         .big-button:hover {
+        background-color: #ff5274;
+        transform: scale(1.05); /* Slight scale effect on hover */
+        }
+
+        .login-signup {
+        position: absolute;
+        bottom: 20px;
+        right: 0%;
+        display: flex;
+        align-items: stretch;
+        flex-direction: column;
+        opacity: 1; /* Initially visible */
+        transition: opacity 0.5s ease;
+        letter-spacing: 4px;
+        margin-right: 10%;
+        }
+
+        .login-signup a {
+            color: #fff;
+            margin: 0 0 10px;
+            padding: 12px 60px;
+            background-color: #DC143C;
+            border-radius: 8px;
+            text-decoration: none;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add a subtle box shadow */
+        }
+
+        .login-signup a:hover {
+            background-color: #880808;
+            transform: scale(1.05); /* Add a slight scale effect on hover */
+        }
+
+        /* Additional styling for a more dynamic appearance */
+        .login-signup a:nth-child(2) {
+            margin-bottom: 20px; /* Adjust spacing between login and signup buttons */
+            transform-origin: bottom; /* Adjust the origin for transform on hover */
+        }
+
+        .login-signup a:nth-child(2):hover {
+            transform: scale(1.05) translateY(-5px); /* Combine scale and translateY for a lifted effect */
+        }
+
+
+        .hidden {
+            opacity: 0; 
+            pointer-events: none; 
+        }
+
+     
+        .fade-in{
+            opacity: 0;
+            animation: fadeIn ease-in-out 1;
+            animation-fill-mode: forwards;
+            animation-duration: 1s;
+        }
+
+        /* .fade-in a{
+            background-color: #DC143C;
+            margin: 30%;
+            display: flex;
+            justify-content: center;
+            align-content: end;
+            margin-bottom : 10%
+        } */
+
+        footer {
+            background-color: rgba(51, 51, 51, 0.7);
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+            width: 100%;
+            margin-bottom: 0%;
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        /* Custom animation for the navbar */
+        @keyframes fadeInDown {
+            0% {
+                transform: translateY(-100%);
+            }
+            100% {
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive styles */
+        @media(max-width: 768px) {
+            nav .container {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .nav-menu {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                position: absolute;
+                top: 60px;
+                left: 0;
+                background-color: #333;
+            }
+
+            .nav-menu.active {
+                display: flex;
+            }
+
+            .landing-section-title{
+                margin-left: 4%;
+                margin-top: 25%;
+            }
+
+            .landing-section-subtitle {
+                margin-top: 36%;
+                margin-left: 17%;/* Adjust the top margin for smaller screens */
+            }
+
+            .nav-menu a {
+                padding: 15px;
+                text-align: center;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            .login-signup {
+                width: 100%;
+                bottom: 20px;
+                right: 20px;
+                opacity: 1; /* Initially hidden */
+            }
+
+
+            img{
+                opacity: 0;
+            }
+
+            .horizontal-scroll{
+                flex-direction:row;
+                align-items:flex-start;
+                overflow-y:scroll ;
+            }
+
+            .horizontal-scroll div {
+                 width: 100%; /* Make each item full-width */
+                margin: 0; /* Remove margin */
+                padding: 20px; /* Adjust padding as needed */
+                text-align: center; 
+            }
+
+            .fade-in p {
+                width: 100%;
+            }
+
+            .fade-in a {
+                margin: 10px 0; /* Adjust margin for buttons */
+            }
+            
+
+        }
+        
+    </style>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="py-4">
+    <div class="container mx-auto flex items-center justify-between">
+        <div class="flex items-center">
+            <div class="hamburger" onclick="toggleMenu()">
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+            <div class="nav-menu">
+                
+                <a href="/game" class="hover:text-green-500">GAME</a>
+                <a href="/redeem1" class="hover:text-green-500">REDEEM</a>
+                <a href="/periodt" class="hover:text-green-500">TRACKER</a>
+                 <a href="/epfor" class="hover:text-green-500">EPISODE FORUM</a> 
+                <a href="/curated0" class="hover:text-green-500">CURATED PLAYLISTS</a>
+                <a href="https://map22.netlify.app/" class="hover:text-green-500">NEARBY STORES</a>
+                <a href="/upevents" class="hover:text-green-500">UPCOMING EVENTS</a>
+                <a href="/about" class="hover:text-green-500">ABOUT US</a>
+                <a href="/logout" class="hover:text-green-500">LOGOUT</a>
+
+            </div>
+        </div>
+    </div>
+</nav>
+
+
+<section class="landing-section bg-gray-100">
+    <div class="card">
+        <div class="landing-section-title">RED</div>
+        <div class="landing-section-subtitle">EMBRACE THE FLOW!</div>
+    </div>
+        <img src="https://ik.imagekit.io/hbd8egryz/Smart%20INDIA%20Hackathon/4274784.png?updatedAt=1702289929711">
+        <!-- <div class="container mx-auto">
+        <h1 class="text-4xl font-bold mb-4">THIS IS RED</h1>
+        <p class="text-lg text-gray-700 mb-8">.</p>
+        <a href="#" class="bg-green-500 text-white px-6 py-3 rounded transition duration-300 hover:bg-green-600">Get Started</a>
+    </div> -->
+</section>
+
+<!-- Scroll Section -->
+<section class="scroll-section bg-white">
+    <div class="container mx-auto">
+        <div class="big-button mb-6"><a href="https://www.roblox.com/games/15256640069/vanamali-sedimbis-Place-Number-9">DOWNLOAD GAME</a></div>
+        <div class="horizontal-scroll">
+            <div class="fade-in">
+                <p>Win coupons that you have won in game for real life products!</p>
+                <a href="https://www.stayfree.in/products" class="bg-green-500 text-white px-4 py-2 rounded mt-4">Redeem</a>
+            </div>
+            <div class="fade-in">
+                <p>Any menstruation app is incomplete without a period tracker, use RED's own native period tracker for better planning.</p>
+                <a href="/periodt" class="bg-green-500 text-white px-4 py-2 rounded mt-4">Period Tracker</a>
+            </div>
+            <div class="fade-in">
+                <p>Need expert advice but are too shy to ask? This section is for you!</p>
+                <a href="#" class="bg-green-500 text-white px-4 py-2 rounded mt-4">Chat with experts</a>
+            </div>
+            <div class="fade-in">
+                <p>Want to share any peculiar experience that stands out but teaches something?</p> 
+                <p>Post your experience completely ANONYMOUSLY for it to be converted into</p>
+                <p>a future episode.</p>
+                <a href="/epfor" class="bg-green-500 text-white px-4 py-2 rounded mt-4">The Episode Forum</a>
+            </div>
+            <div class="fade-in">
+                <p>Watch state of the art videos, each of which focus on certain topics curated by our in-house experts</p>
+                <a href="/curated0" class="bg-green-500 text-white px-4 py-2 rounded mt-4">Curated Playlists</a>
+            </div>
+            <div class="fade-in">
+                <p>Check out the nearby Pharmacy stores incase of emergency!</p>
+                <a href="/map1" class="bg-green-500 text-white px-4 py-2 rounded mt-4">Go to stores</a>
+            </div>
+            <div class="fade-in">
+                <p>Click to know </p>
+                <a href="/about" class="bg-green-500 text-white px-4 py-2 rounded mt-4">About us</a>
+            </div>
+        </div>
+        <div class="arrow-btn" >&#8594;</div>
+        <div class="arrow-btn2">&#8592;</div>
+    </div>
+    <footer>
+        <p>©red<br><a href="tel:+918618814704">Call Us: +91 861-8814704</a><br><a href="mailto:vanamalisedimbi@gmail.com">Email: vanamalisedimbi@gmail.com</a></a></p>
+    </footer>
+</section>
+
+<!-- Login and Signup Buttons -->
+<div class="login-signup hidden">
+    <a href="/login" class="text-white">LOGIN</a>
+    <a href="/sign-up" class="text-white">SIGN UP</a>
+
+</div>
+
+<!-- Additional sections and content go here -->
+
+<script>
+    // JavaScript for handling horizontal scroll and arrow button click
+    const scrollContainer = document.querySelector('.horizontal-scroll');
+    const arrowButton = document.querySelector('.arrow-btn');
+    const arrowButton2 = document.querySelector('.arrow-btn2');
+    const loginSignup = document.querySelector('.login-signup');
+
+    arrowButton.addEventListener('click', () => {
+        scrollContainer.scrollBy({
+            left: window.innerWidth,
+            behavior: 'smooth',
+        });
+    });
+    arrowButton2.addEventListener('click', () => {
+        scrollContainer.scrollBy({
+            left: -window.innerWidth,
+            behavior: 'smooth',
+            });
+            });
+
+    // JavaScript for toggling the responsive menu
+    function toggleMenu() {
+        const navMenu = document.querySelector('.nav-menu');
+        navMenu.classList.toggle('active');
+    }
+
+    // JavaScript for showing/hiding login and signup buttons based on scroll
+    window.addEventListener('scroll', () => {
+        const scrollPosition = window.scrollY;
+
+        // Set a threshold value based on your layout
+        const threshold = 200;
+
+        if (scrollPosition > threshold) {
+            loginSignup.classList.add('hidden');
+        } else {
+            loginSignup.classList.remove('hidden');
+        }
+    });
+</script>
+
+
+</body>
+</html>

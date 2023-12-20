@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>REDEEM HERE</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+    }
+
+    header {
+      background-color: #ff5275;
+      color: #fff;
+      text-align: center;
+      padding: 1em;
+    }
+
+    main {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      max-width: 800px;
+      margin: 20px auto;
+      padding: 20px;
+      background-color: #fff;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .product {
+      width: 45%;
+      border: 1px solid #ccc;
+      padding: 10px;
+      margin-bottom: 20px;
+      box-sizing: border-box;
+    }
+
+    .product img {
+      width: 100%;
+      height: auto;
+    }
+
+    button {
+      width: 100%;
+      padding: 10px;
+      cursor: pointer;
+      background-color: #ff5275;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+    }
+
+    input {
+      width: 80%;
+      padding: 10px;
+      margin-right: 10px;
+    }
+
+    #discount-message {
+      width: 100%;
+      margin-top: 20px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>REDEEM HERE</h1>
+  </header>
+  <main>
+    <div class="product">
+      <img src="https://ik.imagekit.io/hbd8egryz/DISCOUNT/cottonyxl18ssizechanged.jpg?updatedAt=1703070089282" alt="Product 1">
+      <h2>Stayfree</h2>
+      <p>Din tumhaare sath chalega.</p>
+      <input type="text" class="couponInput" placeholder="Enter Coupon Code">
+      <button onclick="redeemCoupon('XyZaBcD1')">Redeem</button>
+    </div>
+    <div class="product">
+      <img src="https://ik.imagekit.io/hbd8egryz/DISCOUNT/71ryTbYknwL.jpg?updatedAt=1703070089805" alt="Product 2">
+      <h2>Whisper</h2>
+      <p>Stay confident stay protected.</p>
+      <input type="text" class="couponInput" placeholder="Enter Coupon Code">
+      <button onclick="redeemCoupon('QrStUvW2')">Redeem</button>
+    </div>
+    <div class="product">
+      <img src="https://ik.imagekit.io/hbd8egryz/DISCOUNT/71xFX4OaUCL._AC_UF1000,1000_QL80_.jpg?updatedAt=1703070089578" alt="Product 3">
+      <h2>Sofy</h2>
+      <p>Stay fit allday.</p>
+      <input type="text" class="couponInput" placeholder="Enter Coupon Code">
+      <button onclick="redeemCoupon('3eFdGhI4')">Redeem</button>
+    </div>
+    <div class="product">
+      <img src="https://ik.imagekit.io/hbd8egryz/DISCOUNT/71L+YvzFkRL.jpg?updatedAt=1703070089794" alt="Product 4">
+      <h2>Always</h2>
+      <p>Be proud.</p>
+      <input type="text" class="couponInput" placeholder="Enter Coupon Code">
+      <button onclick="redeemCoupon('JkLmNoP5')">Redeem</button>
+    </div>
+  </main>
+
+  <script>
+     function redeemCoupon(couponCode) {
+      const validCodes = ["XyZaBcD1", "QrStUvW2", "3eFdGhI4", "JkLmNoP5"];
+      const couponInput = couponCode || document.querySelector('.couponInput').value.toUpperCase();
+      if (validCodes.includes(couponInput)) {
+        const discountType = validCodes.indexOf(couponInput) % 2 === 0 ? '50% discount' : 'Buy 1 Get 1 Free';
+        const redirectURL = `/discount-page?type=${encodeURIComponent(discountType)}`;
+        window.location.href = redirectURL;
+      } 
+      else {
+        alert('Invalid coupon code. Please try again.');
+      }
+    }
+  </script>
+</body>
+</html>

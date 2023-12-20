@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nearby Pharmacies and Drug Stores</title>
+    <style>
+        #map {
+            height: 100vh;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <h1>Nearby Pharmacies and Drug Stores</h1>
+    
+    <div id="map"></div>
+
+    <script>
+        function initMap() {
+            const apiKey = 'AIzaSyDIA8HV9mtlXXyEGnZk4t2K52tflQT1uxg';
+            const map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 15
+            });
+
+            function handleLocationError(browserHasGeolocation, initialLocation) {
+                const errorInfo = browserHasGeolocation ?
+                    'Error: The Geolocation service failed.' :
+                    'Error: Your browser doesn\'t support geolocation.';
+                alert(errorInfo);
+                map.setCenter(initialLocation);
+            }
+
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(
+                    (position) => {
+                        const initialLocation = {
+                            lat: position.coords.latitude,
+                            lng: position.coords.longitude
+                        };
+
+                        // Add marker for the user's location
+                        const userMarker = new google.maps.Marker({
+                            map: map,
+                            position: initialLocation,
+                            title: 'Your Location',
+                            icon: 'http://maps.google.com/mapfiles/ms/icons/blue-dot.png'
+                        });
+
+                        map.setCenter(initialLocation);
+
+                        const radius = 1000;
+                        const keywords = ['pharmacy', 'drug store'];
+
+                        for (const keyword of keywords) {
+                            const request = {
+                                location: initialLocation,
+                                radius: radius,
+                                keyword: keyword,
+                                key: apiKey
+                            };
+
+                            const service = new google.maps.places.PlacesService(map);
+
+                            service.nearbySearch(request, (results, status) => {
+                                if (status === google.maps.places.PlacesServiceStatus.OK) {
+                                    for (let i = 0; i < results.length; i++) {
+                                        const place = results[i];
+                                        createMarker(place);
+                                    }
+                                }
+                            });
+                        }
+                    },
+                    () => {
+                        handleLocationError(true, map.getCenter());
+                    }
+                );
+            } else {
+                handleLocationError(false, map.getCenter());
+            }
+
+            function createMarker(place) {
+                const marker = new google.maps.Marker({
+                    map: map,
+                    position: place.geometry.location,
+                    title: place.name
+                     // Use your own medical store icon URL
+
+                });
+
+                const infowindow = new google.maps.InfoWindow({
+                    content: `<strong>${place.name}</strong><br>${place.vicinity}<br><a href="https://www.google.com/maps?q=${place.geometry.location.lat()},${place.geometry.location.lng()}" target="_blank">View on Google Maps</a>`
+                });
+
+                marker.addListener('click', () => {
+                    infowindow.open(map, marker);
+                });
+            }
+        }
+    </script>
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDIA8HV9mtlXXyEGnZk4t2K52tflQT1uxg&libraries=places&callback=initMap" async defer></script>
+</body>
+</html>

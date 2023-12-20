@@ -1,0 +1,180 @@
+/* Importing Google font - Open Sans */
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Open Sans', sans-serif;
+}
+
+body {
+    background: #ecececdb;
+}
+
+.card-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    max-width: 1250px;
+    margin: 150px auto;
+    padding: 20px;
+    gap: 20px;
+    margin-top: -250px;
+}
+
+.card-list .card-item {
+    background: #fff;
+    padding: 26px;
+    border-radius: 8px;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.04);
+    list-style: none;
+    cursor: pointer;
+    text-decoration: none;
+    border: 2px solid transparent;
+    transition: border 0.5s ease;
+}
+
+.card-list .card-item:hover {
+    border: 2px solid #d47ac5;
+}
+
+.card-list .card-item img {
+    width: 100%;
+    aspect-ratio: 16/9;
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+.card-list span {
+    display: inline-block;
+    background: #F7DFF5;
+    margin-top: 32px;
+    padding: 8px 15px;
+    font-size: 0.75rem;
+    border-radius: 50px;
+    font-weight: 600;
+}
+
+.card-list .developer {
+    background-color: #F7DFF5; 
+    color: #B22485;
+}   
+
+.card-list .designer {
+    background-color: #ed8cd2;
+    color: #de6abf;
+}
+
+.card-list .editor {
+    background-color: #d6f8d6; 
+    color: #205c20;
+}
+
+.card-item h3 {
+    color: #000;
+    font-size: 1.438rem;
+    margin-top: 28px;
+    font-weight: 600;
+}
+
+.card-item .arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: rotate(-35deg);
+    height: 40px;
+    width: 40px;
+    color: #000;
+    border: 1px solid #000;
+    border-radius: 50%;
+    margin-top: 40px;
+    transition: 0.2s ease;
+}
+
+.card-list .card-item:hover .arrow  {
+    background: #000;
+    color: #fff; 
+}
+
+@media (max-width: 1200px) {
+    .card-list .card-item {
+        padding: 15px;
+    }
+}
+
+@media screen and (max-width: 980px) {
+    .card-list {
+        margin: 0 auto;
+    }
+}
+@keyframes scaleImage {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.2);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.circle-container {
+    display: flex;
+    align-items: center;
+    margin-top:50px;
+    justify-content: center;
+    height: 10vh;
+    position: relative; /* Set the position to relative */
+}
+
+.circle {
+    width: 100px;
+    margin-top: -600px;
+    height: 100px;
+    background-color: pink;
+    border-radius: 50%; /* Creates a circle */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-items: center;
+    animation: scaleImage 2s ease-in-out infinite;
+    position: absolute; /* Set the position to absolute */
+    z-index: 2; /* Make the circle appear above other elements */
+}
+
+.verified-svg {
+    width: 50px;
+    fill: white;
+}
+
+.text-container {
+    text-align: center;
+    margin-top: -150px;
+  
+    z-index: 1; /* Ensure text container is behind the circle */
+}
+hr.pink-line {
+    border: 1px solid rgb(223, 99, 120);
+    margin-bottom: 100px; /* Add a pink horizontal line */
+    margin: 50px 0; /* Add spacing above and below the line */
+}
+.text-container h3 {
+    font-size: 24px;
+    color: #eb83b7;
+    font-weight: bold;
+    margin-top: 20px;
+    animation: fadeIn 2s ease-in-out; /* Add a fade-in animation */
+}
+
+/* Define the keyframes for the fadeIn animation */
+@keyframes fadeIn {
+    0% {
+        opacity: 0; /* Start with 0 opacity (invisible) */
+        transform: translateY(-20px); /* Move up slightly */
+    }
+    100% {
+        opacity: 1; /* End with full opacity (visible) */
+        transform: translateY(0); /* Return to the original position */
+    }
+}

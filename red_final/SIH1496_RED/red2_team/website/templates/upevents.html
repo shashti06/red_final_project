@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upcoming Events</title>
+    <link href="https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@100;400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Saira+Condensed&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+   <style>
+    
+   .h1 {
+    font-family: 'Saira Condensed', sans-serif;
+    font-size: 30px;
+    margin-top: 30px;
+   margin-bottom: 100px;
+    color: #f9f4f7; /* Change the color to your preference */
+    text-align: center;
+    text-transform: uppercase; /* Uppercase text */
+    }
+
+    /* Importing Google font - Open Sans */
+    @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700&display=swap');
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Open Sans', sans-serif;
+    }
+
+    body {
+        background: #BB0044;
+        font-family: 'Saira Condensed', sans-serif;
+    }
+
+    .card-list {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        max-width: 1250px;
+        margin: -100px auto;
+        
+        padding: 20px;
+        gap: 20px;
+    }
+
+    .card-list .card-item {
+        background: #fff;
+        padding: 26px;
+        border-radius: 8px;
+        box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.04);
+        list-style: none;
+        cursor: pointer;
+        text-decoration: none;
+        border: 2px solid transparent;
+        transition: border 0.5s ease;
+    }
+
+    .card-list .card-item:hover {
+        border: 2px solid #87CEEB
+        ;
+    }
+
+    .card-list .card-item img {
+        width: 100%;
+        aspect-ratio: 16/9;
+        border-radius: 8px;
+        object-fit: cover;
+    }
+
+    .card-list span {
+        display: inline-block;
+        background: #F7DFF5;
+        margin-top: 32px;
+        padding: 8px 15px;
+        font-size: 0.75rem;
+        border-radius: 50px;
+        font-weight: 600;
+    }
+
+    .card-list .developer {
+        background-color: #F7DFF5; 
+        color: #B22485;
+    }   
+
+    .card-list .designer {
+        background-color: #d1e8ff;
+        color: #2968a8;
+    }
+
+    .card-list .editor {
+        background-color: #d6f8d6; 
+        color: #205c20;
+    }
+
+    .card-item h3 {
+        color: #000;
+        font-size: 1.438rem;
+        margin-top: 28px;
+        font-weight: 600;
+    }
+
+    .card-item .arrow {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transform: rotate(-35deg);
+        height: 40px;
+        width: 40px;
+        color: #000;
+        border: 1px solid #000;
+        border-radius: 50%;
+        margin-top: 40px;
+        transition: 0.2s ease;
+    }
+
+    .card-list .card-item:hover .arrow  {
+        background: #000;
+        color: #fff; 
+    }
+
+    @media (max-width: 1200px) {
+        .card-list .card-item {
+            padding: 15px;
+        }
+    }
+
+    @media screen and (max-width: 980px) {
+        .card-list {
+            margin: 0 auto;
+        }
+    }
+
+
+/* Animation for the <h1> tag */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.h1 {
+    animation: fadeInUp 1.5s ease-in-out; /* Apply the animation */
+}
+
+
+
+
+/* Importing Google font - Open Sans */
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Saira Condensed', sans-serif;
+}
+
+body {
+    background: #BB0044;
+}
+
+.card-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    max-width: 1250px;
+    margin: -100px auto;
+    
+    padding: 20px;
+    gap: 20px;
+}
+
+.card-list .card-item {
+    background: #fff;
+    padding: 26px;
+    border-radius: 8px;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.04);
+    list-style: none;
+    cursor: pointer;
+    text-decoration: none;
+    border: 2px solid transparent;
+    transition: border 0.5s ease;
+}
+
+.card-list .card-item:hover {
+    border: 2px solid #000
+    ;
+}
+
+.card-list .card-item img {
+    width: 100%;
+    aspect-ratio: 16/9;
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+.card-list span {
+    display: inline-block;
+    background: #F7DFF5;
+    margin-top: 32px;
+    padding: 8px 15px;
+    font-size: 0.75rem;
+    border-radius: 50px;
+    font-weight: 600;
+}
+
+.card-list .developer {
+    background-color: #F7DFF5; 
+    color: #B22485;
+}   
+
+.card-list .designer {
+    background-color: #d1e8ff;
+    color: #2968a8;
+}
+
+.card-list .editor {
+    background-color: #d6f8d6; 
+    color: #205c20;
+}
+
+.card-item h3 {
+    color: #000;
+    font-size: 1.438rem;
+    margin-top: 28px;
+    font-weight: 600;
+}
+
+.card-item .arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: rotate(-35deg);
+    height: 40px;
+    width: 40px;
+    color: #000;
+    border: 1px solid #000;
+    border-radius: 50%;
+    margin-top: 40px;
+    transition: 0.2s ease;
+}
+
+.card-list .card-item:hover .arrow  {
+    background: #000;
+    color: #fff; 
+}
+
+@media (max-width: 1200px) {
+    .card-list .card-item {
+        padding: 15px;
+    }
+}
+
+@media screen and (max-width: 980px) {
+    .card-list {
+        margin: 0 auto;
+    }
+}
+
+</style>
+    
+</head>
+<body style="background-color: #ff5274;">
+    <div class="h1" style="font-family: Saira Condensed;"><h1>Upcoming Events</h1></div>
+
+    <div class="card-list" >
+        <a  class="card-item">
+            <img src="https://ik.imagekit.io/hbd8egryz/Smart%20INDIA%20Hackathon/game1.jpg?updatedAt=1702898183896" alt="Card Image">
+            <span class="developer">Episode 2</span>
+            <h3>Carrying an emergency pad is very important. What if you get it in the middle of a class?
+                You probably wouldn't....Right?</h3>
+          
+            <div class="arrow">
+                <i class="fas fa-arrow-right card-icon"></i>
+               
+
+            </div>
+        </a>
+
+        <a class="card-item">
+            <img src="https://ik.imagekit.io/hbd8egryz/Smart%20INDIA%20Hackathon/game2.jpg?updatedAt=1702898183054" alt="Card Image">
+            <span class="designer">Episode 3</span>
+            <h3>Does everyone has to use the pad only? Are there other options? If yes can one know what's best for them? How do they choose?
+                Play as a confused boy in this episode, as it takes a unique turn.</h3>
+           
+            <div class="arrow">
+                <i class="fas fa-arrow-right card-icon"></i>
+            </div>
+        </a>
+        <a class="card-item">
+            <img src="https://ik.imagekit.io/hbd8egryz/Smart%20INDIA%20Hackathon/7732609_5236.jpg?updatedAt=1702922230849" alt="Card Image">
+            <span class="editor">Outreach Program</span>
+            <h3>Register for our outreach program to spread awareness about the existence of the game.
+                You can either choose to attend as an audience or join hands with other volunteers and help the greater good.</h3>
+         
+            <div class="arrow">
+                <i class="fas fa-arrow-right card-icon"></i>
+            </div>
+        </a>
+    </div>
+  
+</body>
+</html>

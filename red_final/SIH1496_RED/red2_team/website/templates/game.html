@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>game</title>
+    <link href="https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@100;400&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+
+    .back-to-home {
+      text-decoration: none;
+      background-color: #ff5274; /* Background color for the button */
+      color: #fff; /* Text color */
+      padding: 8px 16px; /* Adjust the padding as needed */
+      border-radius: 4px;
+      margin-bottom: 50px;
+      margin-left: 1100px;
+      
+     }
+  
+  .back-to-home:hover {
+      background-color: #ff5274; /* Change the background color on hover */
+     }
+    
+    @import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
+    *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Saira Condensed', sans-serif;
+    }
+
+    html,body{
+    height: 100%;
+    display: grid;
+    place-items: center;
+    text-align: center;
+    }
+ 
+    h1{
+        font: weight 700;
+        font-size: 85px;
+    }
+    .container{
+    padding: 0 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    }
+
+    .card{
+    height: 280px;
+    max-width: 350px;
+    margin: 0 20px;
+    background: white;
+    transition: 0.4s;
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+    }
+
+    .card:hover{
+    height: 470px;
+    box-shadow: 5px 5px 10px rgba(0,0,0,0.2);
+    }
+
+    .card .img{
+    height: 200px;
+    width: 100%;
+    }
+
+    .card .img img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    }
+
+    .card .top-text{
+    padding: 5px;
+    }
+
+    .card .top-text .name{
+    font-size: 25px;
+    font-weight: 600;
+    color: #202020;
+    }
+
+    .card .top-text p{
+    font-size: 20px;
+    font-weight: 600;
+    color: #e74c3c;
+    line-height: 20px;
+    }
+    
+    .card .bottom-text{
+    padding: 0 20px 10px 20px;
+    margin-top: 5px;
+    background: white;
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.1s;
+    }
+
+    .card:hover .bottom-text{
+    opacity: 1;
+    visibility: visible;
+    }
+    .card .bottom-text .text{
+    text-align: justify;
+    }
+    .card .bottom-text .btn{
+    margin: 10px 0;
+    text-align: left;
+    }
+    .card .bottom-text .btn a{
+    text-decoration: none;
+    background: #ff5274;
+    color: #f2f2f2;
+    padding: 5px 8px;
+    border-radius: 3px;
+    display: inline-flex;
+    transition: 0.2s;
+    }
+    .card .bottom-text .btn a:hover{
+    transform: scale(0.9);
+    }
+
+  </style>
+  </head>
+  <body style="background-image: url('https://ik.imagekit.io/hbd8egryz/Smart%20INDIA%20Hackathon/vibrant-silk-fashion-yellow-pink-abstract-elegance-generated-by-artificial-intelligence.jpg?updatedAt=1702371997132');
+                background-size:cover;
+                background-position: center;
+                background-repeat: no-repeat;">
+    <h1>GAME</h1>
+    <div class="container">
+      <div class="card">
+        <div class="img">
+          <img src="https://ik.imagekit.io/hbd8egryz/Smart%20INDIA%20Hackathon/game3.jpg?updatedAt=1702898183909">
+        </div>
+        <div class="top-text">
+          <div class="name">Episode 1</div>
+          <!-- <p>Apps Developer</p> -->
+        </div>
+        <div class="bottom-text">
+          <div class="text">You’re born in a village, you get your first period, what do you do? what do the people say?
+            Play as a young girl and watch through her lens, the mysteries of menstruation.</div>
+          <div class="btn">
+            <a href="https://www.roblox.com/games/15256640069/">Play Game</a>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="img">
+          <img src="https://ik.imagekit.io/hbd8egryz/Smart%20INDIA%20Hackathon/ep2.jpg?updatedAt=1703056772078">
+        </div>
+        <div class="top-text">
+          <div class="name">Episode 2</div>
+          <!-- <p>Website Developer</p> -->
+        </div>
+        <div class="bottom-text">
+          <div class="text">Does everyone has to use the pad only? Are there other options? 
+            If yes can one know what's best for them? How do they choose?
+            Play as a confused boy in this episode, as it takes a unique turn.</div>
+          <div class="btn">
+            <a href="https://www.roblox.com/games/13210792403/">Play Game</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="img">
+          <img src="https://ik.imagekit.io/hbd8egryz/Smart%20INDIA%20Hackathon/game2.jpg?updatedAt=1702898183054">
+        </div>
+        <div class="top-text">
+          <div class="name">Episode 3</div>
+          <!-- <p>Graphic Developer</p> -->
+        </div>
+        <div class="bottom-text">
+          <div class="text">Carrying an emergency pad is very important. What if you get it in the middle of a class?
+            You probably wouldn't....Right?</div>
+          <div class="btn">
+           
+          </div>
+        </div>
+      </div>
+    </div>
+    <a href="/pt100" class="back-to-home" style="margin-left: 40px;">Back to Home</a>
+ </body>
+</html>
